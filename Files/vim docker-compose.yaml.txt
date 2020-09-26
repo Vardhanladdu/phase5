@@ -1,0 +1,92 @@
+FROM python:3.7-alpine
+
+
+
+WORKDIR /code
+
+
+
+ENV FLASK_APP app.py
+
+
+
+ENV FLASK_RUN_HOST 0.0.0.0
+
+
+
+RUN apk add --no-cache gcc musl-dev linux-headers
+
+
+
+COPY requirements.txt requirements.txt
+
+
+
+RUN pip install -r requirements.txt
+
+
+
+EXPOSE 5000
+
+
+
+COPY . .
+
+
+
+CMD ["flask", "run"] 
+
+
+
+root@ip-172-31-25-32:~/project567# cat vim docker-compose.yaml
+cat: vim: No such file or directory
+version: '3.3'
+
+services:
+
+
+
+  web:
+
+
+
+    build: .
+
+
+
+    ports:
+
+
+
+      - "5000:5000"
+
+
+
+  redis:
+
+
+
+    image: "redis:alpine"
+
+  elk:
+
+
+
+    image: "sebp/elk"
+
+
+
+    ports:
+
+
+
+    - "5601:5601"
+
+
+
+    - "9200:9200"
+
+
+
+    - "5044:5044"
+

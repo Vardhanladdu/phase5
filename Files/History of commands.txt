@@ -1,0 +1,19 @@
+  904  mkdir project567
+  905  ls
+  906  cd project567
+  907  vim app.py
+  908  vim requirements.txt
+  909  vim Dockerfile
+  910  ls
+  911  sudo curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  912  sudo chmod +x /usr/local/bin/docker-compose
+  913  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+  914  docker-compose--version
+  915  docker-compose --version
+  916  ls
+  917  vim docker-compose.yaml
+  918  ls
+  919  docker-compose up
+920 docker tag  vardhansri/centos
+ 921 docker push vardhansri/centos
+
